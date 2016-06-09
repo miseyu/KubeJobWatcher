@@ -1,6 +1,10 @@
-#JobWatcher
+#KubeJobWatcher
 
-Clean up jobs when finished. Every 10 seconds KubeJobWatcher will delete any job that has succeeded or failed.
+Kubernetes does not automatically clean up jobs.This can lead to huge numbers of failed job pods building up and bringing your system to a halt.
+
+Enter KubeJobWatcher.
+
+KubeJobWatcher cleans up jobs. Every 10 seconds KubeJobWatcher will query Kube for a list of jobs. If those jobs have greater than 1 failure or success the job will be removed along with any associated pods.
 
 ## To use
 
