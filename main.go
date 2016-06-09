@@ -246,7 +246,7 @@ func main() {
 
 				// do your custom cleanup here
 
-				// optionall print the job logs
+				// optionally print the job logs
 				if printLogs {
 					logs, err := getLogs(v.Metadata.Name, v.Metadata.Namespace)
 					if err != nil {
