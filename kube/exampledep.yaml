@@ -1,0 +1,24 @@
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: kubejobwatcher
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubejobwatcher
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: kubejobwatcher
+      labels:
+        app: kubejobwatcher
+      namespace: default
+    spec:
+      containers:
+        - name: kubejobwatcher
+          image: drud/kubejobwatcher
+          imagePullPolicy: Always
