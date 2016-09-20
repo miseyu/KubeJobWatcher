@@ -1,8 +1,7 @@
 FROM golang:1.6.2-alpine
 MAINTAINER Erin Corson
 
-ENV KUBECTL_VERSION v1.2.1
-ENV KUBECTL_SHA256 a41b9543ddef1f64078716075311c44c6e1d02c67301c0937a658cef37923bbb
+ENV KUBECTL_VERSION v1.3.6
 
 ADD https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl /bin/kubectl
 
