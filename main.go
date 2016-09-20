@@ -14,7 +14,7 @@ import (
 const (
 	tokenPath         = "/var/run/secrets/kubernetes.io/serviceaccount/token"
 	pollInterval      = 30 // in seconds
-	succeedThreshhold = 30 // number of successes before cleanup
+	succeedThreshhold = 1 // number of successes before cleanup
 	failThreshhold    = 1  // number of fails before cleanup
 	printLogs         = false
 )
@@ -232,7 +232,7 @@ func main() {
 				v.Status.Active,
 			)
 
-			if st, _ := time.Parse("2006-01-02T15:04:05Z", v.Status.StartTime);time.Now().UTC().Sub(st.Add(2 * time.Hour)) > 0 {
+			if st, _ := time.Parse("2006-01-02T15:04:05Z", v.Status.StartTime);time.Now().UTC().Sub(st.Add(2 * time.Hour)) < 0 {
 				continue
 			}
 
